@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/main.css">
     <script src="node_modules/pixi.js/dist/pixi.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <link rel="stylesheet" href="css/animate.css">
 </head>
 
 <body>
@@ -27,20 +28,18 @@
         <div id="contenedor">
             <!-- Menu-Inicio -->
             <div id="Menu-left">
-               <div class="card menu" onclick="jugar(1)">
-                   <h1 id="jugar">JUGAR¡</h1>
+               <div class="card menu animated bounceInDown" onclick="jugar(1)">
+                   <h1 id="jugar" class="jugar">Jugar</h1>
                </div>
-                <div class="card menu" onclick="jugar(2)">
-                    <h1 id="Instrucciones">Instrucciones</h1>
+                <div class="card menu animated bounceInLeft" onclick="jugar(2)">
+                    <h1 id="Instrucciones" class="jugar">Instrucciones</h1>
                 </div>
-                <div class="card menu" onclick="jugar(3)">
-                    <h1 id="Logros">Logros</h1>
+                <div class="card menu animated bounceInRight" onclick="jugar(3)" >
+                    <h1 id="Logros" class="jugar">Logros</h1>
                 </div>
             </div>
             <div id="Menu-right">
-                <div id="Titulo-Index">
-                    <img src="img/img-Menu/luchadoresdelagua.png">
-                </div>
+
                 <div id="Personaje">
                     <img src="img/axolotes.png">
                 </div>
