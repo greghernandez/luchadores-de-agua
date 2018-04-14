@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Axolotes</title>
     <link rel="stylesheet" href="css/main.css">
-    <link rel="js" href="index.html">
     <script src="node_modules/pixi.js/dist/pixi.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
 </head>
 
 <body>
@@ -20,14 +20,9 @@
         <div id="contenedor">
             <!-- Menu-Inicio -->
             <div id="Menu-left">
-               <div class="card menu" onclick="menuInicio('1')">
-                </div>
-                <div class="card menu">
-                    <a href="instrucciones.html">Instrucciones</a>
-                </div>
-                <div class="card menu">
-                    <a href="logros.html">Logros</a>
-                </div>
+               <div class="card menu" onclick="jugar(1)"></div>
+                <div class="card menu" onclick="jugar(2)"></div>
+                <div class="card menu" onclick="jugar(3)"></div>
             </div>
             <div id="Menu-right">
                 <div id="Titulo-Index">
