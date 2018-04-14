@@ -22,7 +22,7 @@
             // with a fallback to a canvas render. It will also setup the ticker
             // and the root stage PIXI.Container
             var app = new PIXI.Application(1366, 615, {backgroundColor : 0x1099bb});
-            document.getElementById('contenedor').appendChild(app.view);
+            document.body.appendChild(app.view);
 
             // The application will create a canvas element for you that you
             // can then insert into the DOM
