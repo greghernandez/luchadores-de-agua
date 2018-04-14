@@ -3,7 +3,16 @@
 	margin: 0;
 }
 
-#video{
-	background: red;
-	float: left;
+.contenedor{
+	width: 100%;
+	height: 100%;
 }
+
+	#video{
+		position: relative !important;
+		width: 80%;
+		height: 80%;
+		margin-top: 60px !important;
+		margin-left: 10% !important;
+		background: red;
+	}
