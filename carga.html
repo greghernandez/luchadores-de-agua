@@ -2,43 +2,72 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/carga.css">
 	<script src="node_modules/pixi.js/dist/pixi.js"></script>
 </head>
 <body>
-	<h1>HOLA</h1>
+	<div id="cont-global">
+        <div id="contenedor">
 	<script>
-		var app = new PIXI.Application(800, 600, { backgroundColor: 0x1099bb });
+		var app = new PIXI.Application(1366, 615);
 document.body.appendChild(app.view);
 
-// Scale mode for all textures, will retain pixelation
-PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
+var count = 0;
 
-var sprite = PIXI.Sprite.fromImage('img/bunny.png');
+// build a rope!
+var ropeLength = 45;
 
-// Set the initial position
-sprite.anchor.set(0.5);
-sprite.x = app.screen.width / 2;
-sprite.y = app.screen.height / 2;
+var points = [];
 
-// Opt-in to interactivity
-sprite.interactive = true;
+for (var i = 0; i < 25; i++) {
+    points.push(new PIXI.Point(i * ropeLength, 0));
+}
 
-// Shows hand cursor
-sprite.buttonMode = true;
+var strip = new PIXI.mesh.Rope(PIXI.Texture.fromImage('img/bunny.png'), points);
 
-// Pointers normalize touch and mouse
-sprite.on('pointerdown', onClick);
+strip.x = -40;
+strip.y = 300;
 
-// Alternatively, use the mouse & touch events:
-// sprite.on('click', onClick); // mouse-only
-// sprite.on('tap', onClick); // touch-only
+app.stage.addChild(strip);
 
-app.stage.addChild(sprite);
+var g = new PIXI.Graphics();
+g.x = strip.x;
+g.y = strip.y;
+app.stage.addChild(g);
 
-function onClick () {
-    sprite.scale.x *= 1.25;
-    sprite.scale.y *= 1.25;
+// start animating
+app.ticker.add(function() {
+
+    count += 0.1;
+
+    // make the snake
+    for (var i = 0; i < points.length; i++) {
+        points[i].y = Math.sin((i * 0.5) + count) * 30;
+        points[i].x = i * ropeLength + Math.cos((i * 0.3) + count) * 20;
+    }
+    renderPoints();
+});
+
+function renderPoints () {
+
+    g.clear();
+
+    g.lineStyle(2,0xffc2c2);
+    g.moveTo(points[0].x,points[0].y);
+
+    for (var i = 1; i < points.length; i++) {
+        g.lineTo(points[i].x,points[i].y);
+    }
+
+    for (var i = 1; i < points.length; i++) {
+        g.beginFill(0xff0022);
+        g.drawCircle(points[i].x,points[i].y,10);
+        g.endFill();
+    }
 }
 	</script>
+</div>
+    </div>
 </body>
+
 </html>
