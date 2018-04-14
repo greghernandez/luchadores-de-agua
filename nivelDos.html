@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Axolotes</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="node_modules/pixi.js/dist/pixi.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <link rel="stylesheet" href="css/animate.css">
+</head>
+
+<body>
+    <div id="cont-global">
+        <!--Nav Bar-->
+        <div id="nav">
+            <div id="logo">
+                <img src="img/ajolote3.png" class="img-logo" alt="logo">
+            </div>
+            <div id="logo-centro">
+                <img src="img/logo-nav.png" class="logo-letra" alt="Luchadores del agua">
+            </div>
+            <div id="btn-menu">
+                <a href="index.html" class="btn" title="">Menú</a>
+            </div>
+        </div>
+        <div id="contenedor">
+            <script>
+            var app = new PIXI.Application(1336, 615, { backgroundColor: 0x1099bb });
+            document.body.appendChild(app.view);
+
+            // create a texture from an image path
+            var texture = PIXI.Texture.fromImage('img/bunny.png');
+
+            // Scale mode for pixelation
+            texture.baseTexture.scaleMode = PIXI.SCALE_MODES.NEAREST;
+
+                createBunny(
+                    Math.floor(Math.random() * app.screen.width),
+                    Math.floor(Math.random() * app.screen.height)
+                );
+
+            function createBunny(x, y) {
+
+                // create our little bunny friend..
+                var bunny = new PIXI.Sprite(texture);
+
+                // enable the bunny to be interactive... this will allow it to respond to mouse and touch events
+                bunny.interactive = true;
+
+                // this button mode will mean the hand cursor appears when you roll over the bunny with your mouse
+                bunny.buttonMode = true;
+
+                // center the bunny's anchor point
+                bunny.anchor.set(0.5);
+
+                // make it a bit bigger, so it's easier to grab
+                bunny.scale.set(3);
+
+                // setup events for mouse + touch using
+                // the pointer events
+                bunny
+                    .on('pointerdown', onDragStart)
+                    .on('pointerup', onDragEnd)
+                    .on('pointerupoutside', onDragEnd)
+                    .on('pointermove', onDragMove);
+
+
+                // For mouse-only events
+                // .on('mousedown', onDragStart)
+                // .on('mouseup', onDragEnd)
+                // .on('mouseupoutside', onDragEnd)
+                // .on('mousemove', onDragMove);
+
+                // For touch-only events
+                // .on('touchstart', onDragStart)
+                // .on('touchend', onDragEnd)
+                // .on('touchendoutside', onDragEnd)
+                // .on('touchmove', onDragMove);
+
+                // move the sprite to its designated position
+                bunny.x = x;
+                bunny.y = y;
+
+                // add it to the stage
+                app.stage.addChild(bunny);
+            }
+
+            function onDragStart(event) {
+                // store a reference to the data
+                // the reason for this is because of multitouch
+                // we want to track the movement of this particular touch
+                this.data = event.data;
+                this.alpha = 0.5;
+                this.dragging = true;
+            }
+
+            function onDragEnd() {
+                this.alpha = 1;
+                this.dragging = false;
+                // set the interaction data to null
+                this.data = null;
+                alert('Hola');
+            }
+
+            function onDragMove() {
+                if (this.dragging) {
+                    var newPosition = this.data.getLocalPosition(this.parent);
+                    this.x = newPosition.x;
+                    this.y = newPosition.y;
+                }
+            }
+            </script>
+        </div>
+    </div>
+</body>
+
+</html>
