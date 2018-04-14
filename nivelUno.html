@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Nivel 1</title>
 	<link rel="stylesheet" href="nivelUno.css">
+    <link rel="js" href="splash.js">
 	<script src="node_modules/pixi.js/dist/pixi.js"></script>
 </head>
 <body>
@@ -13,10 +14,39 @@
             <img src="" alt="">
             <a href="" title=""></a>
         </div>
+    </div>
+    <div id="splash">
+            <div id="cont-global">
+        <div id="contenedor">
+    <script>
+        var app = new PIXI.Application(1366, 615);
+document.body.appendChild(app.view);
+
+var count = 0;
+
+// build a rope!
+var ropeLength = 45;
+
+var points = [];
+
+for (var i = 0; i < 25; i++) {
+    points.push(new PIXI.Point(i * ropeLength, 0));
+}
+
+var strip = new PIXI.mesh.Rope(PIXI.Texture.fromImage('img/bunny.png'), points);
+
+strip.x = -40;
+strip.y = 300;
+
+app.stage.addChild(strip);
+
+var g = new PIXI.Gra
+        </script>
+        </div>
         <div id="contenedor">
             <!-- Menu-Inicio -->
             <script>
-            	// The application will create a renderer using WebGL, if possible,
+                // The application will create a renderer using WebGL, if possible,
             // with a fallback to a canvas render. It will also setup the ticker
             // and the root stage PIXI.Container
             var app = new PIXI.Application(1366, 615, {backgroundColor : 0x1099bb});
@@ -48,9 +78,8 @@
                     bunny.rotation += 0.01;
                 });
             });
-			</script>
+            </script>
 </div>
-    </div>
 </body>
 
 </html>

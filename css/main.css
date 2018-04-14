@@ -13,7 +13,6 @@ a{
 
 #cont-global{
 	position: fixed;
-
 	width: 100%;
 	height: 100%;
 }
@@ -80,7 +79,7 @@ a{
 	width: 100%;
 	height: 100%;
 	z-index: -1;
-	background-color: #f3f3f3;
+	background-color: rgba(45, 135, 207, 0.3);
 }
 
 #Menu-left{
@@ -95,7 +94,6 @@ a{
 	float: left;
 	width: 50%;
 	height: 100%;
-	background-color: yellow;
 }
 
 #Titulo-Index{
@@ -103,16 +101,29 @@ a{
 	width: 100%;
 	height: 40%;
 	float: left;
-	background-color: red;
 }
+
+	#Titulo-Index img{
+		position: relative;
+		width: 90%;
+		height: 70%;
+		top: 20%;
+		left: 5%;
+	}
 
 #Personaje{
 	position: relative;
 	width: 100%;
 	height: 60%;
 	float: left;
-	background-color: green;
 }
+
+	#Personaje img{
+		position: relative;
+		width: 90%;
+		height: 90%;
+		left: 5%;
+	}
 
 canvas{
 	position: fixed;
