@@ -3,6 +3,10 @@
 	padding: 0px;
 }
 
+a{
+	text-decoration: none;
+}
+
 #cont-global{
 	position: fixed;
 
@@ -17,9 +21,42 @@
 	height: 60px;
 }
 
+#logo{
+	position: relative;
+	float: left;
+	width: 25%;
+	height: 100%;
+	color: red;
+}
+
+#logo-centro{
+	position: relative;
+	float: left;
+	width: 50%;
+	height: 100%;
+	color: green;
+	text-align: center;
+}
+
+#btn-menu{
+	position: relative;
+	float: left;
+	width: 25%;
+	height: 100%;
+	color: red;
+	text-align: center;
+	padding: auto;
+}
+
+.btn{
+	margin: 8px;
+	border-radius: 10px;
+	background-color: red;
+}
+
 .logo-letra{
-	margin: 5px;
-	height: 30px;
+	margin: 2.5px;
+	height: 55px;
 }
 
 /*Cierra nav*/
