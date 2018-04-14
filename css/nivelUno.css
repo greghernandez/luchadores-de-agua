@@ -1,0 +1,37 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+#cont-global{
+	position: fixed;
+
+	width: 100%;
+	height: 100%;
+}
+
+/*nav*/
+#nav{
+	position: relative;
+	width: 100%;
+	height: 60px;
+}
+
+.logo-letra{
+	margin: 5px;
+	height: 30px;
+}
+
+/*Cierra nav*/
+#contenedor{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	background-color: #f3f3f3;
+}
+
+canvas{
+	position: fixed;
+	margin-top: 60px;
+}
