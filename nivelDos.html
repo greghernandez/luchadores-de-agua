@@ -30,37 +30,35 @@
             var app = new PIXI.Application(1336, 615, { backgroundColor: 0x1099bb });
             document.body.appendChild(app.view);
 
-            // create a texture from an image path
-            var texture = PIXI.Texture.fromImage('img/bunny.png');
 
-            // Scale mode for pixelation
-            texture.baseTexture.scaleMode = PIXI.SCALE_MODES.NEAREST;
+            //Fondo
+            var fondo = PIXI.Texture.fromImage('img/stage/Stage3.png');
 
-                createBunny(
-                    Math.floor(Math.random() * app.screen.width),
-                    Math.floor(Math.random() * app.screen.height)
-                );
+            fondo.baseTexture.scaleMode =PIXI.SCALE_MODES.NEAREST;
+                createFondo(
+                        Math.floor(.8 * app.screen.width),
+                        Math.floor(.9 * app.screen.height)
+                    );
 
-            function createBunny(x, y) {
-
+            function createFondo(x,y){
                 // create our little bunny friend..
-                var bunny = new PIXI.Sprite(texture);
+                var Stage = new PIXI.Sprite(fondo);
 
                 // enable the bunny to be interactive... this will allow it to respond to mouse and touch events
-                bunny.interactive = true;
+                Stage.interactive = false;
 
                 // this button mode will mean the hand cursor appears when you roll over the bunny with your mouse
-                bunny.buttonMode = true;
+                Stage.buttonMode = true;
 
                 // center the bunny's anchor point
-                bunny.anchor.set(0.5);
+                Stage.anchor.set(0.8);
 
                 // make it a bit bigger, so it's easier to grab
-                bunny.scale.set(3);
+                Stage.scale.set(0.7);
 
                 // setup events for mouse + touch using
                 // the pointer events
-                bunny
+                Stage
                     .on('pointerdown', onDragStart)
                     .on('pointerup', onDragEnd)
                     .on('pointerupoutside', onDragEnd)
@@ -80,11 +78,129 @@
                 // .on('touchmove', onDragMove);
 
                 // move the sprite to its designated position
-                bunny.x = x;
-                bunny.y = y;
+                Stage.x = x;
+                Stage.y = y;
 
                 // add it to the stage
-                app.stage.addChild(bunny);
+                app.stage.addChild(Stage);
+            }
+
+           
+            // ccubeta
+            var texture = PIXI.Texture.fromImage('img/CodeNation/cubeta.png');
+            // Scale mode for pixelation
+            texture.baseTexture.scaleMode = PIXI.SCALE_MODES.NEAREST;
+
+                createCubeta(
+                    Math.floor(.9 * app.screen.width),
+                    Math.floor(.8 * app.screen.height)
+                );
+
+            function createCubeta(x, y) {
+
+                // create our little bunny friend..
+                var Cubeta = new PIXI.Sprite(texture);
+
+                // enable the bunny to be interactive... this will allow it to respond to mouse and touch events
+                Cubeta.interactive = true;
+
+                // this button mode will mean the hand cursor appears when you roll over the bunny with your mouse
+                Cubeta.buttonMode = true;
+
+                // center the bunny's anchor point
+                Cubeta.anchor.set(0.08);
+
+                // make it a bit bigger, so it's easier to grab
+                Cubeta.scale.set(0.09);
+
+                // setup events for mouse + touch using
+                // the pointer events
+                Cubeta
+                    .on('pointerdown', onDragStart)
+                    .on('pointerup', onDragEnd)
+                    .on('pointerupoutside', onDragEnd)
+                    .on('pointermove', onDragMove);
+
+
+                // For mouse-only events
+                // .on('mousedown', onDragStart)
+                // .on('mouseup', onDragEnd)
+                // .on('mouseupoutside', onDragEnd)
+                // .on('mousemove', onDragMove);
+
+                // For touch-only events
+                // .on('touchstart', onDragStart)
+                // .on('touchend', onDragEnd)
+                // .on('touchendoutside', onDragEnd)
+                // .on('touchmove', onDragMove);
+
+                // move the sprite to its designated position
+                Cubeta.x = x;
+                Cubeta.y = y;
+
+                // add it to the stage
+                app.stage.addChild(Cubeta);
+            }
+
+
+            //MANGUERA
+            var manguera = PIXI.Texture.fromImage('img/CodeNation/Manguera.png');
+
+             // Scale mode for pixelation
+            manguera.baseTexture.scaleMode = PIXI.SCALE_MODES.NEAREST;
+
+                createManguera(
+                    Math.floor(.1 * app.screen.width),
+                    Math.floor(.8 * app.screen.height)
+                );
+
+            //Fin de declaracion de objetos(cubeta,manguera,...)
+            
+
+            function createManguera(x, y) {
+
+                // create our little bunny friend..
+                var Manguera = new PIXI.Sprite(manguera);
+
+                // enable the bunny to be interactive... this will allow it to respond to mouse and touch events
+                Manguera.interactive = true;
+
+                // this button mode will mean the hand cursor appears when you roll over the bunny with your mouse
+                Manguera.buttonMode = true;
+
+                // center the bunny's anchor point
+                Manguera.anchor.set(0.08);
+
+                // make it a bit bigger, so it's easier to grab
+                Manguera.scale.set(0.09);
+
+                // setup events for mouse + touch using
+                // the pointer events
+                Manguera
+                    .on('pointerdown', onDragStart)
+                    .on('pointerup', onDragEnd)
+                    .on('pointerupoutside', onDragEnd)
+                    .on('pointermove', onDragMove);
+
+
+                // For mouse-only events
+                // .on('mousedown', onDragStart)
+                // .on('mouseup', onDragEnd)
+                // .on('mouseupoutside', onDragEnd)
+                // .on('mousemove', onDragMove);
+
+                // For touch-only events
+                // .on('touchstart', onDragStart)
+                // .on('touchend', onDragEnd)
+                // .on('touchendoutside', onDragEnd)
+                // .on('touchmove', onDragMove);
+
+                // move the sprite to its designated position
+                Manguera.x = x;
+                Manguera.y = y;
+
+                // add it to the stage
+                app.stage.addChild(Manguera);
             }
 
             function onDragStart(event) {
