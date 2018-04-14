@@ -57,11 +57,7 @@
                     "La cubeta es una buena opción para lavar.",
                     function() {
                         alertify.message('Nuevo logro desbloqueado, tirin!');
-                        function redireccionarPagina(){
-                            window.location.assing("niveles.html");
-                        }
-                        setTimeout("redireccionarPagina()", 5000);
-                        }
+                        setTimeout(function(){location.href="niveles.html"}, 5000)
                     }
                 )
             }
