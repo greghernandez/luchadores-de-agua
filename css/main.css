@@ -24,6 +24,22 @@
 	background-color: #f3f3f3;
 }
 
+#Menu-left{
+	position: relative;
+	float: left;
+	width: 50%;
+	height: 100%;
+	background-color: green;
+}
+
+#Menu-right{
+	position: relative;
+	float: left;
+	width: 50%;
+	height: 100%;
+	background-color: yellow;
+}
+
 canvas{
 	position: fixed;
 	margin-top: 60px;
