@@ -30,6 +30,15 @@
             var app = new PIXI.Application(1336, 615, { backgroundColor: 0x1099bb });
             document.body.appendChild(app.view);
 
+                        //Create the background Image
+            var stage = app.stage;
+var sprite = PIXI.Sprite.fromImage('img/stage/Stage3.png');
+sprite.position.x = .05;
+sprite.position.y = .05;
+stage.anchor.set(.5);
+stage.anchor.scale(.5);   
+stage.addChild(sprite);
+
             // create a texture from an image path
             var texture = PIXI.Texture.fromImage('img/bunny.png');
 
@@ -37,8 +46,8 @@
             texture.baseTexture.scaleMode = PIXI.SCALE_MODES.NEAREST;
 
                 createBunny(
-                    Math.floor(Math.random() * app.screen.width),
-                    Math.floor(Math.random() * app.screen.height)
+                    Math.floor(.3 * app.screen.width),
+                    Math.floor(.3* app.screen.height)
                 );
 
             function createBunny(x, y) {
@@ -56,7 +65,7 @@
                 bunny.anchor.set(0.5);
 
                 // make it a bit bigger, so it's easier to grab
-                bunny.scale.set(3);
+                bunny.scale.set(1);
 
                 // setup events for mouse + touch using
                 // the pointer events
@@ -100,8 +109,9 @@
                 this.alpha = 1;
                 this.dragging = false;
                 // set the interaction data to null
+                
+                alert(event.data);
                 this.data = null;
-                alert('Hola');
             }
 
             function onDragMove() {
