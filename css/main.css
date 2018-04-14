@@ -183,3 +183,9 @@ canvas{
 	margin-left: 35px;
 }
 
+#jugar{
+	text-align: center;
+	font-size: 60px;
+	font-family:'Mayan';
+	src: url("fonts/Mayan.ttf");
+}
