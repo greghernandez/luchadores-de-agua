@@ -3,8 +3,12 @@
 	padding: 0px;
 }
 
+body{
+	font-family: ARIAL;
+}
 a{
 	text-decoration: none;
+	color: black;
 }
 
 #cont-global{
@@ -27,6 +31,12 @@ a{
 	width: 25%;
 	height: 100%;
 	color: red;
+	text-align: center;
+}
+
+.img-logo{
+	width: 60px;
+	height: 60px;
 }
 
 #logo-centro{
@@ -43,15 +53,20 @@ a{
 	float: left;
 	width: 25%;
 	height: 100%;
-	color: red;
+	padding: 10px;
+	box-sizing: border-box;
 	text-align: center;
-	padding: auto;
 }
 
 .btn{
-	margin: 8px;
-	border-radius: 10px;
+	position: relative;
+	float: left;
+	padding: 10px 20px 10px 20px;
+	border-radius: 20px;
+	margin: auto 120px;
 	background-color: red;
+	text-align: center;
+	background-color: #47cbc2;
 }
 
 .logo-letra{
