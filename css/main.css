@@ -71,5 +71,6 @@ canvas{
 .niveles{
 	width: 30%;
 	height: 25%;
+	border-radius: 10px;
 }
 
