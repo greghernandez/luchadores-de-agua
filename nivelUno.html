@@ -3,82 +3,45 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Nivel 1</title>
-	<link rel="stylesheet" href="nivelUno.css">
-    <link rel="js" href="splash.js">
+	<link rel="stylesheet" href="css/nivelUno.css">
 	<script src="node_modules/pixi.js/dist/pixi.js"></script>
 </head>
 <body>
 	<div id="cont-global">
         <!--Nav Bar-->
         <div id="nav">
-            <img src="" alt="">
-            <a href="" title=""></a>
+            <div id="logo">
+                <img src="img/ajolote3.png" class="img-logo" alt="logo">
+            </div>
+            <div id="logo-centro">
+                <img src="img/logo-nav.png" class="logo-letra" alt="Luchadores del agua">
+            </div>
+            <div id="btn-menu">
+                <a href="index.html" class="btn" title="">Menú</a>
+            </div>
         </div>
-    </div>
-    <div id="splash">
-            <div id="cont-global">
-        <div id="contenedor">
-    <script>
-        var app = new PIXI.Application(1366, 615);
-document.body.appendChild(app.view);
+        <!-- <div id="contenedor">
+            <div id="lvlUno">
+                <img src="img/stage/Stage3.png">
+            </div>
+        </div> -->
+        <canvas width="400" height="400" id="lienzo"></canvas>
+        <script>
+            var cv;
+            var cx;
+            var objetos;
+            var objetoActual = null;
 
-var count = 0;
+            function actualizar() {
+                cx.fillStyle = '#f0f0f0';
+                cx.fillRect(0, 0, 400, 300);
+                for(var i = 0; i < objetos.lenght; i++){
+                    cx.fillStyle = objetos[i].color;
+                }
+            }
 
-// build a rope!
-var ropeLength = 45;
-
-var points = [];
-
-for (var i = 0; i < 25; i++) {
-    points.push(new PIXI.Point(i * ropeLength, 0));
-}
-
-var strip = new PIXI.mesh.Rope(PIXI.Texture.fromImage('img/bunny.png'), points);
-
-strip.x = -40;
-strip.y = 300;
-
-app.stage.addChild(strip);
-
-var g = new PIXI.Gra
         </script>
-        </div>
-        <div id="contenedor">
-            <!-- Menu-Inicio -->
-            <script>
-                // The application will create a renderer using WebGL, if possible,
-            // with a fallback to a canvas render. It will also setup the ticker
-            // and the root stage PIXI.Container
-            var app = new PIXI.Application(1366, 615, {backgroundColor : 0x1099bb});
-            document.body.appendChild(app.view);
-
-            // The application will create a canvas element for you that you
-            // can then insert into the DOM
-            document.body.appendChild(app.view);
-
-            // load the texture we need
-            PIXI.loader.add('bunny', 'img/bunny.png').load((loader, resources) => {
-                // This creates a texture from a 'bunny.png' image
-                const bunny = new PIXI.Sprite(resources.bunny.texture);
-
-                // Setup the position of the bunny
-                bunny.x = app.renderer.width / 2;
-                bunny.y = app.renderer.height / 2;
-
-                // Rotate around the center
-                bunny.anchor.x = 0.5;
-                bunny.anchor.y = 0.5;
-
-                // Add the bunny to the scene we are building
-                app.stage.addChild(bunny);
-
-                // Listen for frame updates
-                app.ticker.add(() => {
-                    // each frame we spin the bunny around a bit
-                    bunny.rotation += 0.01;
-                });
-            });
-            </script>
+    </div>
 </div>
 </body>
 
