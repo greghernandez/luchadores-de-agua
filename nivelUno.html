@@ -9,6 +9,12 @@
     <script src="node_modules/pixi.js/dist/pixi.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <link rel="stylesheet" href="css/animate.css">
+    <!-- include the script -->
+    <script src="js/alertify.min.js"></script>
+    <!-- include the style -->
+    <link rel="stylesheet" href="css/alertify.min.css" />
+    <!-- include a theme -->
+    <link rel="stylesheet" href="css/themes/default.min.css" />
 </head>
 
 <body>
@@ -46,7 +52,13 @@
                 // set the interaction data to null
                 this.data = null;
 
-                alert("hola");
+
+                alertify.alert(
+                    "La cubeta es una buena opción para lavar.",
+                    function() {
+                        alertify.message('Nuevo logro desbloqueado, tirin!');
+                    }
+                )
             }
 
             function onDragMove() {
@@ -63,13 +75,13 @@
             //Fondo
             var fondo = PIXI.Texture.fromImage('img/stage/Stage3.png');
 
-            fondo.baseTexture.scaleMode =PIXI.SCALE_MODES.NEAREST;
-                createFondo(
-                        Math.floor(.8 * app.screen.width),
-                        Math.floor(.9 * app.screen.height)
-                    );
+            fondo.baseTexture.scaleMode = PIXI.SCALE_MODES.NEAREST;
+            createFondo(
+                Math.floor(.8 * app.screen.width),
+                Math.floor(.9 * app.screen.height)
+            );
 
-            function createFondo(x,y){
+            function createFondo(x, y) {
                 // create our little bunny friend..
                 var Stage = new PIXI.Sprite(fondo);
 
@@ -114,16 +126,16 @@
                 app.stage.addChild(Stage);
             }
 
-           
+
             // ccubeta
             var texture = PIXI.Texture.fromImage('img/CodeNation/cubeta.png');
 
             texture.baseTexture.scaleMode = PIXI.SCALE_MODES.NEAREST;
 
-                createCubeta(
-                    Math.floor(.9 * app.screen.width),
-                    Math.floor(.8 * app.screen.height)
-                );
+            createCubeta(
+                Math.floor(.9 * app.screen.width),
+                Math.floor(.8 * app.screen.height)
+            );
 
             function createCubeta(x, y) {
 
@@ -175,13 +187,13 @@
             //MANGUERA
             var manguera = PIXI.Texture.fromImage('img/CodeNation/Manguera.png');
 
-             // Scale mode for pixelation
+            // Scale mode for pixelation
             manguera.baseTexture.scaleMode = PIXI.SCALE_MODES.NEAREST;
 
-                createManguera(
-                    Math.floor(.1 * app.screen.width),
-                    Math.floor(.8 * app.screen.height)
-                );
+            createManguera(
+                Math.floor(.1 * app.screen.width),
+                Math.floor(.8 * app.screen.height)
+            );
 
 
             function createManguera(x, y) {
@@ -205,9 +217,9 @@
                 // the pointer events
                 Manguera
                     .on('pointerdown', onClick)
-                    // .on('pointerup', onDragEnd)
-                    // .on('pointerupoutside', onClick)
-                    // .on('pointermove', onDragMove);
+                // .on('pointerup', onDragEnd)
+                // .on('pointerupoutside', onClick)
+                // .on('pointermove', onDragMove);
 
 
                 // For mouse-only events
@@ -231,12 +243,15 @@
             }
 
             //Fin de declaracion de objetos(cubeta,manguera,...)
-            
-            function onClick(){
-                alert("Es una mala opcion¡");
+
+            function onClick() {
+                alertify.alert(
+                    "La manguera no es una buena opción para lavar.",
+                    function() {
+                        alertify.message('Intenta de nuevo');
+                    }
+                )
             }
-
-
             </script>
         </div>
     </div>
